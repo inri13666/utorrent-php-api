@@ -6,7 +6,7 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Queue;
+namespace Akuma\Bittorrent\Queue;
 
 
 class Torrent

@@ -6,11 +6,11 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma;
+namespace Akuma\Bittorrent;
 
-use Akuma\Queue\RssFeed;
-use Akuma\Queue\RssFilter;
-use Akuma\Queue\Torrent;
+use Akuma\Bittorrent\Queue\RssFeed;
+use Akuma\Bittorrent\Queue\RssFilter;
+use Akuma\Bittorrent\Queue\Torrent;
 
 define("UTORRENT_TORRENT_HASH", 0);
 define("UTORRENT_TORRENT_STATUS", 1);
@@ -43,7 +43,7 @@ define("UTORRENT_STATUS_CHECKED", 2);
 define("UTORRENT_STATUS_START_AFTER_CHECK", 4);
 
 
-class uTorrent
+class Client
 {
     /**
      * @var string

@@ -2,13 +2,13 @@
 /**
  * User  : Nikita.Makarov
  * Date  : 7/20/15
- * Time  : 3:21 PM
+ * Time  : 3:39 PM
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Queue;
+namespace Akuma\Bittorrent;
 
 
-class RssFeed {
+class Settings {
 
 } 
