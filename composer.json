@@ -1,0 +1,31 @@
+{
+    "name"             : "akuma/utorrent-php-api",
+    "type"             : "library",
+    "description"      : "uTorrent PHP Api",
+    "keywords"         : ["Torrent Management"],
+    "homepage"         : "",
+    "license"          : "MIT",
+    "authors"          : [
+        {
+            "name" : "Nikita Makarov",
+            "email": "mesaverde228@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require"          : {
+        "php"     : ">=5.4",
+        "ext-curl": "*"
+    },
+    "require-dev"      : {
+    },
+    "autoload"         : {
+        "psr-0": {
+            "Akuma\\uTorrent": "lib/"
+        }
+    },
+    "extra"            : {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
