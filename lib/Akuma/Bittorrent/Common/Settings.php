@@ -6,7 +6,7 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Bittorrent;
+namespace Akuma\Bittorrent\Common;
 
 
 class Settings {
