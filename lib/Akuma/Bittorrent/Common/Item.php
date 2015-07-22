@@ -11,45 +11,108 @@ namespace Akuma\Bittorrent\Common;
 
 class Item
 {
+    /**
+     * @var string
+     */
     protected $magnetUri = null;
+    /**
+     * @var string
+     */
     protected $name = null;
+    /**
+     * @var array
+     */
     protected $trackers = array();
+    /**
+     * @var int
+     */
+    protected $size = null;
 
-    public function getMagnetUri(){
+    public function getMagnetUri()
+    {
         return $this->magnetUri;
     }
+
     /**
      * Web link to the file online
      */
-    public function getSource(){
+    public function getSource()
+    {
 
     }
 
+    /**
+     * @return string
+     */
     public function getHash()
     {
         return '';
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-        return "";
+        return $this->name;
     }
 
+    /**
+     * @return int
+     */
     public function getSize()
     {
-        return 0;
+        return $this->size;
     }
 
-    public function addTracker($tracker){
-        if(!in_array($tracker,$this->trackers)){
+    /**
+     * @param string $tracker
+     *
+     * @return bool
+     */
+    public function hasTracker($tracker)
+    {
+        return in_array($tracker, $this->trackers);
+    }
+
+    /**
+     * @param string $tracker
+     *
+     * @return $this
+     */
+    public function addTracker($tracker)
+    {
+        if (!$this->hasTracker($tracker)) {
             $this->trackers[] = $tracker;
         }
         return $this;
     }
 
+    /**
+     * @param string|array $tracker
+     *
+     * @return $this
+     */
+    public function removeTracker($tracker)
+    {
+        if ($this->hasTracker($tracker)) {
+            $this->trackers = array_diff_assoc($this->trackers, (is_array($tracker) ? array_values($tracker) : array($tracker)));
+        }
+        return $this;
+    }
+
+    /**
+     * @param string $torrentFile
+     *
+     * @return Item|null
+     */
     public static function fromFile($torrentFile)
     {
-        return self::fromString(file_get_contents($torrentFile));
+        if (@is_readable($torrentFile)) {
+            return self::fromString(file_get_contents($torrentFile));
+        } else {
+            return null;
+        }
 
     }
 
@@ -66,7 +129,7 @@ class Item
         $query = parse_url($magnetUri, PHP_URL_QUERY);
         if ($query === false) return null;
 
-        $query= str_replace('tr=','tr[]=',$query);
+        $query = str_replace('tr=', 'tr[]=', $query);
         parse_str($query, $data);
         //var_dump($data);die();
         /**
@@ -83,10 +146,10 @@ class Item
          */
         $item = new self();
         $item->magnetUri = $magnetUri;
-        $item->hash = array_pop(explode(':',$data['xt']));
-        $item->name = isset($data['dn'])?$data['dn']:null;
-        if(isset($data['tr'])){
-            foreach($data['tr'] as $tracker){
+        $item->hash = array_pop(explode(':', $data['xt']));
+        $item->name = isset($data['dn']) ? $data['dn'] : null;
+        if (isset($data['tr'])) {
+            foreach ($data['tr'] as $tracker) {
                 $item->addTracker($tracker);
             }
         }

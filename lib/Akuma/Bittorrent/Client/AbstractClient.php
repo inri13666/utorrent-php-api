@@ -43,7 +43,7 @@ define("UTORRENT_STATUS_CHECKED", 2);
 define("UTORRENT_STATUS_START_AFTER_CHECK", 4);
 
 
-class Client
+abstract class AbstractClient implements ClientInterface
 {
     /**
      * @var string
