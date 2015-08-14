@@ -6,44 +6,14 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Bittorrent;
+namespace Akuma\Bittorrent\Client;
 
 use Akuma\Bittorrent\Queue\RssFeed;
 use Akuma\Bittorrent\Queue\RssFilter;
 use Akuma\Bittorrent\Queue\Torrent;
 
-define("UTORRENT_TORRENT_HASH", 0);
-define("UTORRENT_TORRENT_STATUS", 1);
-define("UTORRENT_TORRENT_NAME", 2);
-define("UTORRENT_TORRENT_SIZE", 3);
-define("UTORRENT_TORRENT_PROGRESS", 4);
-define("UTORRENT_TORRENT_DOWNLOADED", 5);
-define("UTORRENT_TORRENT_UPLOADED", 6);
-define("UTORRENT_TORRENT_RATIO", 7);
-define("UTORRENT_TORRENT_UPSPEED", 8);
-define("UTORRENT_TORRENT_DOWNSPEED", 9);
-define("UTORRENT_TORRENT_ETA", 10);
-define("UTORRENT_TORRENT_LABEL", 11);
-define("UTORRENT_TORRENT_PEERS_CONNECTED", 12);
-define("UTORRENT_TORRENT_PEERS_SWARM", 13);
-define("UTORRENT_TORRENT_SEEDS_CONNECTED", 14);
-define("UTORRENT_TORRENT_SEEDS_SWARM", 15);
-define("UTORRENT_TORRENT_AVAILABILITY", 16);
-define("UTORRENT_TORRENT_QUEUE_POSITION", 17);
-define("UTORRENT_TORRENT_REMAINING", 18);
-define("UTORRENT_FILEPRIORITY_HIGH", 3);
-define("UTORRENT_FILEPRIORITY_NORMAL", 2);
-define("UTORRENT_FILEPRIORITY_LOW", 1);
-define("UTORRENT_FILEPRIORITY_SKIP", 0);
-define("UTORRENT_TYPE_INTEGER", 0);
-define("UTORRENT_TYPE_BOOLEAN", 1);
-define("UTORRENT_TYPE_STRING", 2);
-define("UTORRENT_STATUS_STARTED", 1);
-define("UTORRENT_STATUS_CHECKED", 2);
-define("UTORRENT_STATUS_START_AFTER_CHECK", 4);
 
-
-abstract class AbstractClient implements ClientInterface
+abstract class AbstractClient implements InterfaceClient
 {
     /**
      * @var string

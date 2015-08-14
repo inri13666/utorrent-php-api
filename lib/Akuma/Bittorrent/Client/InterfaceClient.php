@@ -6,7 +6,7 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Bittorrent;
+namespace Akuma\Bittorrent\Client;
 
 use Akuma\Bittorrent\Queue\RssFeed;
 use Akuma\Bittorrent\Queue\RssFilter;
@@ -47,7 +47,7 @@ define("UTORRENT_STATUS_START_AFTER_CHECK", 4);
  *
  * @package Akuma\Bittorrent
  */
-interface ClientInterface
+interface InterfaceClient
 {
 
     /**

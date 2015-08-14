@@ -6,9 +6,16 @@
  * E-Mail: nikita.makarov@effective-soft.com
  */
 
-namespace Akuma\Bittorrent;
+namespace Akuma\Bittorrent\Client;
 
 
 class uTorrentClient extends AbstractClient{
 
-} 
+    /**
+     * @return bool
+     */
+    public function isRssSupported()
+    {
+        // TODO: Implement isRssSupported() method.
+    }
+}
