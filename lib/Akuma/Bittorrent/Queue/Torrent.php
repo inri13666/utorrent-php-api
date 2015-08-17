@@ -211,4 +211,9 @@ class Torrent
         return $this->percent_progress;
     }
 
+    public function getSize()
+    {
+        return $this->size;
+    }
+
 }
